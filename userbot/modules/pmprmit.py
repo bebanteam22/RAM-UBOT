@@ -94,8 +94,9 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > 5:
                 await event.respond(
-                    "`Bacot bat Jamet tolol, Gua blok ajalah`\n"
-                    f"`Tunggu {DEFAULTUSER} Bales ya`"
+                    "`Anda Melakukan Spam Chat, Mohon Maaf Saya Block`\n"
+                    f"`Tunggu {DEFAULTUSER} Bales ya`\n"
+                    f"`BY 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄`"                 
                 )
 
                 try:
@@ -234,9 +235,9 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima ツ`")
+        return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima Oleh {DEFAULTUSER} ツ`")
 
-    await apprvpm.edit(f"`Baik` [{name0}](tg://user?id={uid}) `Pesan Lu udah di terima ya babi!!`")
+    await apprvpm.edit(f"`Baik` [{name0}](tg://user?id={uid}) `Pesan Lu dah Di Terima Ya Asu`")
     await apprvpm.delete(getmsg)
     await message.delete()
 
@@ -266,14 +267,14 @@ async def disapprovepm(disapprvpm):
         name0 = str(aname.first_name)
 
     await disapprvpm.edit(
-        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak, Mohon Jangan Melakukan Spam Ke Room Chat!`"
+        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak {DEFAULTUSER}, Mohon Jangan Melakukan Spam Ke Room Chat!`"
     )
 
     if BOTLOG:
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
             f"[{name0}](tg://user?id={disapprvpm.chat_id})"
-            " `Berhasil Ditolak` !",
+            " `Chat Berhasil Ditolak` !",
         )
 
 
